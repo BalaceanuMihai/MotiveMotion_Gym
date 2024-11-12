@@ -1,5 +1,5 @@
 <?php
-
+require_once "config/pdo.php";
 class WorkoutPlan {
     public static function getAllWorkoutPlans() {
         global $pdo;
