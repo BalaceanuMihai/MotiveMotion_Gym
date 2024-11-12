@@ -1,4 +1,5 @@
 <?php
+require_once "config/pdo.php";
 
 class User {
     public static function getAllUsers() {
