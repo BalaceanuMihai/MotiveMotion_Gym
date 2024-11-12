@@ -1,11 +1,20 @@
 # MotiveMotion_Gym
 
-## Descriere generală
-**MotiveMotion Gym** este o aplicatie web destinata celor pasionati de fitness si antrenamente de forță. Aceasta ofera utilizatorilor o platforma usor de utilizat pentru a-si gestiona abonamentele, a-și urmari progresul in sala de sport și sa participe la antrenamente personalizate de antrenori.
+## Overview
+**MotiveMotion Gym** is a web application designed for fitness and strength training enthusiasts. It provides users with an easy-to-use platform to manage their memberships, track their progress in the gym, and participate in personalized training sessions with trainers..
 
 ## Funcționalități
 
-**Urmărirea antrenamentelor**: Utilizatorii pot crea și vizualiza progresul antrenamentelor lor.  
-+**Planuri de antrenament personalizate**: Crează antrenamente în funcție de nivelul de dificultate (începător, intermediar, avansat).  
-+**Gestionarea abonamentelor**: Utilizatorii pot adăuga și urmări abonamentele lor la sală, inclusiv tipul și perioada acestora.  
-+**Statistici și rapoarte**: Vizualizează progresul personal prin grafice și statistici detaliate.
+- **Workout Tracking**: Users can create and view their workout progress.
+- **Customized Workout Plans**: Create workouts based on difficulty level (beginner, intermediate, advanced).
+- **Membership Management**: Users can add and track their gym memberships, including type and duration.
+- **Statistics and Reports**: View personal progress through detailed graphs and statistics.
+
+## Folder structure
+- **config/**: Configuration files, including the router setup and database connection.
+- **controllers/**: Controller classes handling application logic and communication between models and views.
+- **models/**: Model classes representing data and business logic.
+- **views/**: View files for the user interface, outputting data.
+- **migrations/**: SQL files containing database schema changes for tasks.
+- **public/**: Publicly accessible files
+
