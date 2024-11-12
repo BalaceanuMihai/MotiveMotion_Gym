@@ -1,5 +1,5 @@
 <?php
-
+require_once "config/pdo.php";
 class Membership {
     public static function getAllMemberships() {
         global $pdo;
