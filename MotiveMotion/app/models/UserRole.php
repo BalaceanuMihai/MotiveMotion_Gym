@@ -1,5 +1,5 @@
 <?php
-
+require_once "config/pdo.php";
 class UserRole {
     public static function getAllUserRoles() {
         global $pdo;
