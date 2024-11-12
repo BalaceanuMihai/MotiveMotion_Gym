@@ -5,7 +5,7 @@
 
 ## Funcționalități
 
--**Urmărirea antrenamentelor**: Utilizatorii pot crea și vizualiza progresul antrenamentelor lor.  
--**Planuri de antrenament personalizate**: Crează antrenamente în funcție de nivelul de dificultate (începător, intermediar, avansat).  
--**Gestionarea abonamentelor**: Utilizatorii pot adăuga și urmări abonamentele lor la sală, inclusiv tipul și perioada acestora.  
--**Statistici și rapoarte**: Vizualizează progresul personal prin grafice și statistici detaliate.
+**Urmărirea antrenamentelor**: Utilizatorii pot crea și vizualiza progresul antrenamentelor lor.  
++**Planuri de antrenament personalizate**: Crează antrenamente în funcție de nivelul de dificultate (începător, intermediar, avansat).  
++**Gestionarea abonamentelor**: Utilizatorii pot adăuga și urmări abonamentele lor la sală, inclusiv tipul și perioada acestora.  
++**Statistici și rapoarte**: Vizualizează progresul personal prin grafice și statistici detaliate.
