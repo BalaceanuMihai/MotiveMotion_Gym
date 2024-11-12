@@ -1,15 +1,15 @@
 <?php
-require_once "app/models/WorkoutPlans.php";
+require_once "app/models/WorkoutPlan.php";
 
-class MembershipController{
+class WorkoutPlanController{
     public static function index() {
-        $workout_plans = Debt::getAllDebts();
+        $workout_plans = WorkoutPlan::getAllWorkoutPlans();
         require_once "app/views/workout_plans/index.php";
     }
 
     public static function show() {
         $workout_plan_id = $_GET['id'];
-        $workout_plan = Debt::getDebt($workout_plan_id);
+        $workout_plan = WorkoutPlan::getWorkoutPlans($workout_plan_id);
 
         if ($workout_plan) {
             require_once "app/views/workout_plans/show.php";
