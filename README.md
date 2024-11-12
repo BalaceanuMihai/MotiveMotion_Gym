@@ -1,9 +1,10 @@
 # MotiveMotion_Gym
 
 ## Overview
-**MotiveMotion Gym** is a web application designed for fitness and strength training enthusiasts. It provides users with an easy-to-use platform to manage their memberships, track their progress in the gym, and participate in personalized training sessions with trainers..
+**MotiveMotion Gym** is a web application designed for fitness and strength training enthusiasts. It provides users with an easy-to-use platform to manage their memberships, track their progress in the gym, and participate in personalized training sessions with trainers.  
+It is a PHP-based application built using the MVC(Model-View-Controller) design patern.
 
-## Funcționalități
+## Features
 
 - **Workout Tracking**: Users can create and view their workout progress.
 - **Customized Workout Plans**: Create workouts based on difficulty level (beginner, intermediate, advanced).
