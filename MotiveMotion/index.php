@@ -13,4 +13,4 @@ $router = new Router();
 $router->direct();
 ?>
 
-<h1>MotiveMotion runs smoothly!</h1>
+<h1>Welcome to MotiveMotion!</h1>

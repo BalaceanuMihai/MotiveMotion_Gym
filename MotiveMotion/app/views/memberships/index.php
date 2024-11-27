@@ -7,20 +7,41 @@
     <title>Memberships</title>
 </head>
 <body>
-<h1>All Memberships</h1>
-<table>
-    <tr>
-        <th>Price</th>
-        <th>Type</th>
-        <th>Status</th>
-    </tr>
-    <?php foreach ($memberships as $membership) : ?>
-        <tr>
-            <td><?= $membership["price"] ?></td>
-            <td><?= $membership["type_memb"] ?></td>
-            <td><?= $membership["status_memb"] ?></td>
-        </tr>
-    <?php endforeach; ?>
-    
+    <h1>Memberships List</h1>
+    <a href="/MotiveMotion/memberships/create">Add New Membership</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Price</th>
+                <th>Type</th>
+                <th>Starting Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($memberships as $membership): ?>
+                <tr>
+                    <td><?= htmlspecialchars($membership['id']) ?></td>
+                    <td><?= htmlspecialchars($membership['user_id']) ?></td>
+                    <td><?= htmlspecialchars($membership['price']) ?></td>
+                    <td><?= htmlspecialchars($membership['type_memb']) ?></td>
+                    <td><?= htmlspecialchars($membership['starting_date']) ?></td>
+                    <td><?= htmlspecialchars($membership['end_date'] ?? 'N/A') ?></td>
+                    <td><?= htmlspecialchars($membership['status_memb']) ?></td>
+                    <td>
+                        <a href="/MotiveMotion/memberships/show/<?= $membership['id'] ?>">View</a> |
+                        <a href="/MotiveMotion/memberships/edit/<?= $membership['id'] ?>">Edit</a> |
+                        <form action="/MotiveMotion/memberships/destroy/<?= $membership['id'] ?>" method="post" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -1,6 +1,6 @@
-<!-- <?php
-// Load the Router
-require_once "config/routes.php";
+<?php
+
+require_once 'config/routes.php'; // Adjust the path as necessary
 
 // Start the session (optional, if using sessions)
 session_start();
@@ -13,6 +13,6 @@ echo $uri;
 // Initialize the router and route the request
 $router = new Router();
 $router->direct($uri);
-?> -->
+?>
 
-<h1>MotiveMotion runs smoothly!</h1>
+<h1>Welcome to MotiveMotion!</h1>
