@@ -19,3 +19,12 @@ It is a PHP-based application built using the MVC(Model-View-Controller) design 
 - **migrations/**: SQL files containing database schema changes for tasks.
 - **public/**: Publicly accessible files
 
+## Basic authentification for users + creating a new account ( register )
+- You can make an account ( first name, last name, email, password)
+- You can log in only using your email and password
+
+## CRUD operations only for memberships ( for now )
+- Creating a new membership
+- Updating a membership
+- Deleting a membership
+
