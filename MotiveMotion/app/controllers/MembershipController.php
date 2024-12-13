@@ -1,5 +1,6 @@
 <?php
 require_once "app/models/Membership.php";
+require_once "app/models/User.php";
 
 class MembershipController {
     public static function index() {
@@ -8,11 +9,12 @@ class MembershipController {
     }
 
     public static function show($id) {
-        $membership = Membership::findById($id);
+        $membership = Membership::getByIdMembership($id);
         require_once "app/views/memberships/show.php";
     }
 
     public static function create() {
+        $users = User::getAllUsers();
         require_once "app/views/memberships/create.php";
     }
 
@@ -35,7 +37,7 @@ class MembershipController {
     }
 
     public static function edit($id) {
-        $membership = Membership::findById($id);
+        $membership = Membership::getByIdMembership($id);
 
         if ($membership) {
             require_once "app/views/memberships/edit.php";
@@ -64,7 +66,7 @@ class MembershipController {
             }
         } else {
             // Display the form
-            $membership = Membership::findById($id);
+            $membership = Membership::getByIdMembership($id);
 
             if ($membership) {
                 require_once "app/views/memberships/edit.php";

@@ -10,14 +10,11 @@ class User {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function getUser($user_id) {
+    public static function getUser($id) {
         global $pdo;
-
-        $sql = "SELECT * s
-                FROM users 
-                WHERE user_id = :user_id";
+        $sql = "SELECT * FROM users WHERE id = :id";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(array(":user_id" => $user_id));
+        $stmt->execute([':id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 

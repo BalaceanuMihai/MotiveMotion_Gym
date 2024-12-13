@@ -11,7 +11,11 @@
      <!-- Actualizare action pentru a trimite datele la MembershipController -->
      <form action="/MotiveMotion/memberships/store" method="post">
         <label for="user_id">User ID:</label>
-        <input type="number" id="user_id" name="user_id" required>
+        <select id="user_id" name="user_id" required>
+            <?php foreach ($users as $user): ?>
+                <option value="<?= htmlspecialchars($user['id']) ?>"><?= htmlspecialchars($user['id']) ?></option>
+            <?php endforeach; ?>
+        </select>
         <br>
 
         <label for="price">Price:</label>

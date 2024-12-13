@@ -1,0 +1,2 @@
+#Ignore config.php inside the config folder
+config/config.php

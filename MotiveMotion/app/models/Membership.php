@@ -12,7 +12,7 @@ class Membership {
     }
 
     //Read: Obtine un abonament dupa id
-    public static function findById($id) {
+    public static function getByIdMembership($id) {
         global $pdo;
         $sql = "SELECT * FROM memberships WHERE id = :id";
         $stmt = $pdo->prepare($sql);
