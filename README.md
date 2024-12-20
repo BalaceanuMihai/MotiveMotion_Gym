@@ -28,3 +28,7 @@ It is a PHP-based application built using the MVC(Model-View-Controller) design 
 - Updating a membership
 - Deleting a membership
 
+## Permisions for different types of users
+ - Admin - list of memberships( can make changes to them), list of workout_plans
+ - Trainer - list of workout plans
+ - User - Active and inactive memberships
