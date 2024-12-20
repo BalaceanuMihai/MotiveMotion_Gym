@@ -1,3 +1,13 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['user'])) {
+    $_SESSION['error'] = "You must be logged in to access this page.";
+    header("Location: /MotiveMotion/auth/login");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

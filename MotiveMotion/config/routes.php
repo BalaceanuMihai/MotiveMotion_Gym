@@ -20,6 +20,7 @@ $routes = [
     "MotiveMotion/memberships/update/{id}" => ["MembershipController", "update"],
     "MotiveMotion/memberships/destroy/{id}" => ["MembershipController", "destroy"],
     "MotiveMotion/memberships/show/{id}" => ["MembershipController", "show"],
+    "MotiveMotion/memberships/home_user" => ["MembershipController", "home_user"],
 ];
 
 class Router {

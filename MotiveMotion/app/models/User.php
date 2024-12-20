@@ -17,22 +17,24 @@ class User {
         $stmt->execute([':id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    public static function authenticate($first_name, $last_name, $password) {
-        // Example database query to get user data
-        $user = getUser($user_id); // A function that fetches user data from the DB based on the username
     
+    public static function authenticate($email, $password) {
+        global $pdo;
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':email' => $email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
         // Check if the user exists
         if ($user) {
-            // Verify the password using password_verify (assuming the password is hashed)
-            if (password_verify($password, $user['password'])) {
-                return true; // User authenticated successfully
+            // Compare the plain text password directly (not recommended for security reasons)
+            if ($password === $user['password_user']) {
+                return $user; // Return user data if authenticated successfully
             }
         }
         
         return false; // Authentication failed
     }
-    
 
     public static function findByEmail($email) {
         global $pdo;

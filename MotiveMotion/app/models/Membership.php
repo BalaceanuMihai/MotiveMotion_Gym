@@ -67,5 +67,21 @@ class Membership {
 
         return $stmt->execute([":id" => $id]);
     }
+
+    public static function getActiveMembershipsByUserId($user_id) {
+        global $pdo;
+        $sql = "SELECT * FROM memberships WHERE user_id = :user_id AND status_memb = 'active'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':user_id' => $user_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getExpiredMembershipsByUserId($user_id) {
+        global $pdo;
+        $sql = "SELECT * FROM memberships WHERE user_id = :user_id AND status_memb = 'expired'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':user_id' => $user_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

@@ -3,22 +3,40 @@ require_once "app/models/Membership.php";
 require_once "app/models/User.php";
 
 class MembershipController {
+
+    private static function checkAdmin() {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] !== 1) {
+            $_SESSION['error'] = "You do not have permission to perform this action.";
+            if ($_SESSION['user']['role_id'] == 2) {
+                header("Location: /MotiveMotion/workout_plans/index");
+            } else if ($_SESSION['user']['role_id'] == 3) {
+                header("Location: /MotiveMotion/memberships/home_user");
+            } else {
+            header("Location: /MotiveMotion/auth/login");
+            }
+            exit();
+        }
+    }
     public static function index() {
+        self::checkAdmin();
         $memberships = Membership::getAllMemberships();
         require_once "app/views/memberships/index.php";
     }
 
     public static function show($id) {
+        self::checkAdmin();
         $membership = Membership::getByIdMembership($id);
         require_once "app/views/memberships/show.php";
     }
 
     public static function create() {
-        $users = User::getAllUsers();
+        self::checkAdmin();
+        $users = User::getAll();
         require_once "app/views/memberships/create.php";
     }
 
     public static function store() {
+        self::checkAdmin();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_id = $_POST['user_id'];
             $price = $_POST['price'];
@@ -37,6 +55,7 @@ class MembershipController {
     }
 
     public static function edit($id) {
+        self::checkAdmin();
         $membership = Membership::getByIdMembership($id);
 
         if ($membership) {
@@ -48,6 +67,7 @@ class MembershipController {
     }
 
     public static function update($id) {
+        self::checkAdmin();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Process form submission
             $user_id = $_POST['user_id'];
@@ -78,6 +98,7 @@ class MembershipController {
     }
 
     public static function destroy($id) {
+        self::checkAdmin();
         if (Membership::deleteMembership($id)) {
             $_SESSION['success'] = "Membership deleted successfully!";
             header("Location: /MotiveMotion/memberships/index");
@@ -85,6 +106,13 @@ class MembershipController {
         } else {
             $_SESSION['error'] = "Failed to delete membership.";
         }
+    }
+
+    public static function home_user() {
+        $user_id = $_SESSION['user']['id'];
+        $activeMemberships = Membership::getActiveMembershipsByUserId($user_id);
+        $expiredMemberships = Membership::getExpiredMembershipsByUserId($user_id);
+        require_once "app/views/memberships/home_user.php";
     }
 }
 ?>
