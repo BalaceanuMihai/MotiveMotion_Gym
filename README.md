@@ -18,6 +18,8 @@ It is a PHP-based application built using the MVC(Model-View-Controller) design 
 - **views/**: View files for the user interface, outputting data.
 - **migrations/**: SQL files containing database schema changes for tasks.
 - **public/**: Publicly accessible files
+- **phpmailer/**: instalation of php mailer
+- 
 
 ## Basic authentification for users + creating a new account ( register )
 - You can make an account ( first name, last name, email, password)
@@ -32,3 +34,20 @@ It is a PHP-based application built using the MVC(Model-View-Controller) design 
  - Admin - list of memberships( can make changes to them), list of workout_plans
  - Trainer - list of workout plans
  - User - Active and inactive memberships
+
+## Import / Export informations for all the users ( i used composer to install php excel, php word, tcpdf (for qr codes) 
+ - Excel
+ - PDF
+ - Word
+ - QR code ( export for users)
+
+## Sending a contact mail ( i used php mailer)
+ - name
+ - email
+ - message
+
+## Parsing information from edamam website 
+** I used the information from the website to see how many eggs does a user need to eat in order to reach his protein intake goal for the day ( the weight has to be specified manaually ) **
+
+## Table statistics
+** The average age of all the users **
