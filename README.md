@@ -47,7 +47,7 @@ It is a PHP-based application built using the MVC(Model-View-Controller) design 
  - message
 
 ## Parsing information from edamam website 
-** I used the information from the website to see how many eggs does a user need to eat in order to reach his protein intake goal for the day ( the weight has to be specified manaually ) **
+ I used the information from the website to see how many eggs does a user need to eat in order to reach his protein intake goal for the day ( the weight has to be specified manaually ) 
 
 ## Table statistics
-** The average age of all the users **
+ The average age of all the users 
