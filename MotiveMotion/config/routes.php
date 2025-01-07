@@ -1,9 +1,11 @@
 <?php
 
-require_once 'app/controllers/MembershipController.php';
 require_once 'app/controllers/UserController.php';
 require_once 'app/controllers/WorkoutPlanController.php';
 require_once 'app/controllers/AuthController.php';
+require_once 'app/controllers/ImportController.php';
+require_once 'app/controllers/ExportController.php';
+require_once 'app/controllers/AnalyticsController.php'; // Include AnalyticsController
 
 $routes = [
     "MotiveMotion/memberships/index" => ["MembershipController", "index"],
@@ -21,6 +23,19 @@ $routes = [
     "MotiveMotion/memberships/destroy/{id}" => ["MembershipController", "destroy"],
     "MotiveMotion/memberships/show/{id}" => ["MembershipController", "show"],
     "MotiveMotion/memberships/home_user" => ["MembershipController", "home_user"],
+    "MotiveMotion/import/excel" => ["ImportController", "importExcel"],
+    "MotiveMotion/import/pdf" => ["ImportController", "importPDF"],
+    "MotiveMotion/import/word" => ["ImportController", "importWord"],
+    "MotiveMotion/export/excel" => ["ExportController", "exportExcel"],
+    "MotiveMotion/export/pdf" => ["ExportController", "exportPDF"],
+    "MotiveMotion/export/word" => ["ExportController", "exportWord"],
+    "MotiveMotion/export/qr_code" => ["ExportController", "exportQR"],
+    "MotiveMotion/view/export/excel" => ["ExportController", "showExportExcel"],
+    "MotiveMotion/view/export/pdf" => ["ExportController", "showExportPDF"],
+    "MotiveMotion/view/export/word" => ["ExportController", "showExportWord"],
+    "MotiveMotion/view/export/qr_code" => ["ExportController", "showExportQR"],
+    "MotiveMotion/analytics" => ["AnalyticsController", "showAnalytics"], // Adaugă ruta pentru Analytics
+    "MotiveMotion/proteinintake/{userId}/{weight}" => ["ProteinIntakeController", "showProteinIntake"], // Adaugă ruta pentru proteinIntake
 ];
 
 class Router {
@@ -45,18 +60,18 @@ class Router {
                 list($controller, $method) = $controllerAction;
                 require_once "app/controllers/{$controller}.php";
                 array_shift($matches); // Remove the full match
-                echo "Calling $controller::$method with parameters: " . implode(", ", $matches) . "<br>";
+                // echo "Calling $controller::$method with parameters: " . implode(", ", $matches) . "<br>";
                 return call_user_func_array([$controller, $method], $matches);
             }
         }
 
         // Handle the default route
         if ($this->uri === "MotiveMotion/index.php" || $this->uri === "MotiveMotion") {
-            echo "Welcome to MotiveMotion!";
+            // echo "Welcome to MotiveMotion!";
             return;
         }
 
-        echo "404 Not Found for URI: " . htmlspecialchars($this->uri) . "<br>";
+        // echo "404 Not Found for URI: " . htmlspecialchars($this->uri) . "<br>";
         require_once 'app/views/404.php';
     }
 }

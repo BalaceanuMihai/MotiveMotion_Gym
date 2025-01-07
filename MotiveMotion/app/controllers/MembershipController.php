@@ -44,6 +44,13 @@ class MembershipController {
             $starting_date = $_POST['starting_date'];
             $end_date = $_POST['end_date'] ?? null;
 
+            // Verificare dacă prețul este pozitiv
+            if ($price <= 0) {
+                $_SESSION['error'] = "Price must be positive.";
+                header("Location: /MotiveMotion/memberships/create");
+                exit();
+            }
+            
             if (Membership::createMembership($user_id, $price, $type_memb, $starting_date, $end_date)) {
                 $_SESSION['success'] = "Membership created successfully!";
                 header("Location: /MotiveMotion/memberships/index");

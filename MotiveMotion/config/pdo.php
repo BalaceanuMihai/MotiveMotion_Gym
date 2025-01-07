@@ -7,5 +7,5 @@ $pdo = new PDO(
     $config['db_password']
     );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Database connection established<br>";
+    // echo "Database connection established<br>";
 ?>
