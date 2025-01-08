@@ -4,6 +4,10 @@
         "tecnickcom/tcpdf": "^6.8",
         "phpoffice/phpword": "^1.3",
         "endroid/qr-code": "^6.0",
-        "smalot/pdfparser": "^2.11"
+        "smalot/pdfparser": "^2.11",
+        "psr/simple-cache": "^3.0",
+        "lmz/phpanalysis": "^1.0",
+        "google/analytics-data": "^0.21.1",
+        "there4/php-analytics-event": "^1.2"
     }
 }
